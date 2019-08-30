@@ -77,3 +77,22 @@ db2.sh
 sudo su - db2 <<EOF
 db2 connect to sample user db2inst1 using password
 EOF
+~~~
+
+■.profileに環境変数の設定をしておく
+export DB2CODEPAGE=943
+
+■JenkisDockerイメージのjenkins実行ファイルの場所。ここにJenkisのwarがある
+/usr/share/jenkins
+
+■Jenkinsをバージョンアップするときは上記フォルダのwarを上書きする。上書き前にかならずバックアップをとっておく。
+cp /var/jenkins_home/jenkinsupdatework/jenkins.war /usr/share/jenkins/jenkins.war
+
+■作成したimageを保管しておく
+sudo docker commit -m "環境の説明とかを書きます" コンテナID イメージ名
+
+■イメージが保管されたかを確認する
+sudo docker images
+
+
+
